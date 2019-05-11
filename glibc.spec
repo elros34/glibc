@@ -24,6 +24,7 @@ Patch10: eglibc-2.15-fix-neon-libdl.patch
 Patch11: eglibc-2.19-shlib-make.patch
 Patch12: glibc-2.25-bits.patch
 Patch13: ubuntu-2.25.6-git-updates.diff
+Patch14: glibc-2.25-kernel-3.0.patch
 
 Provides: ldconfig
 # The dynamic linker supports DT_GNU_HASH
@@ -45,7 +46,7 @@ BuildRequires: gawk,  util-linux, quilt
 # This gcc >= 3.2 is to ensure that __frame_state_for is exported by glibc
 # will be compatible with egcs 1.x.y
 BuildRequires: gcc >= 3.2
-%define enablekernel 2.6.32
+%define enablekernel 3.0.0
 %ifarch %{ix86}
 %ifarch i486
 %define _target_cpu	i486
@@ -199,6 +200,7 @@ cd %{glibcsrcdir}
 %patch11 -p1
 %patch12 -p1
 %patch13 -p1
+%patch14 -p1
 
 %build
 GCC=gcc
