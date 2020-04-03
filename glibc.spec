@@ -5,7 +5,7 @@
 Name: glibc
 
 Summary: GNU C library shared libraries
-Version: 2.30+git6
+Version: 2.30+git6+3.0.0
 Release: 0
 License: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
 URL: http://www.gnu.org/software/libc/
@@ -29,6 +29,7 @@ Patch15: 0003-arm-CVE-2020-6096-Fix-multiarch-memcpy-for-negative-.patch
 Patch16: 0001-Fix-array-bounds-violation-in-regex-matcher-bug-2514.patch
 Patch17: 0001-posix-Sync-regex-with-gnulib.patch
 Patch18: glibc-CVE-2020-27618.patch
+Patch19: glibc-2.30-kernel-3.0.patch
 
 
 Provides: ldconfig
@@ -51,7 +52,7 @@ BuildRequires: gawk,  util-linux
 # This gcc >= 3.2 is to ensure that __frame_state_for is exported by glibc
 # will be compatible with egcs 1.x.y
 BuildRequires: gcc >= 3.2
-%define enablekernel 3.2
+%define enablekernel 3.0.0
 %ifarch %{ix86}
 %ifarch i486
 %define _target_cpu	i486
@@ -234,6 +235,7 @@ cd %{glibcsrcdir}
 %patch16 -p1
 %patch17 -p1
 %patch18 -p1
+%patch19 -p1
 
 %build
 GCC=gcc
