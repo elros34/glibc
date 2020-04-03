@@ -5,7 +5,7 @@
 Name: glibc
 
 Summary: GNU C library shared libraries
-Version: 2.30+git8
+Version: 2.30+git8+3.0.0
 Release: 0
 License: LGPLv2+ and LGPLv2+ with exceptions and GPLv2+
 URL: http://www.gnu.org/software/libc/
@@ -35,6 +35,7 @@ Patch19: 0019-Fix-use-of-__pthread_attr_copy-in-mq_notify-bug-2789.patch
 Patch20: 0020-librt-fix-NULL-pointer-dereference-bug-28213.patch
 Patch21: 0021-librt-add-test-bug-28213.patch
 # end
+Patch22: glibc-2.30-kernel-3.0.patch
 
 Provides: ldconfig
 # The dynamic linker supports DT_GNU_HASH
@@ -56,7 +57,7 @@ BuildRequires: gawk,  util-linux
 # This gcc >= 3.2 is to ensure that __frame_state_for is exported by glibc
 # will be compatible with egcs 1.x.y
 BuildRequires: gcc >= 3.2
-%define enablekernel 3.2
+%define enablekernel 3.0.0
 %ifarch %{ix86}
 %ifarch i486
 %define _target_cpu	i486
