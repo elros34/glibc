@@ -1107,6 +1107,7 @@ fi
 
 %files -f nscd.filelist -n nscd
 %config(noreplace) /etc/nscd.conf
+%{_tmpfilesdir}/nscd.conf
 %dir %attr(0755,root,root) /var/run/nscd
 %dir %attr(0755,root,root) /var/db/nscd
 /lib/systemd/system/nscd.service
